@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MarsRoverViewer"
         mc:Ignorable="d"
         Title="Mars Rover Viewer"
-        Height="450" Width="800">
+        Height="1000" Width="1300">
     <DockPanel Margin="10">
         
         <StackPanel Orientation="Horizontal"
@@ -20,22 +20,40 @@
             <DatePicker Margin="10 0"
                         SelectedDate="{Binding SelectedDate}" />
             
-            <Button Content="Load Photos"
-                    Command="{Binding LoadPhotosCommand}" />
+            <Button Content="Fotos laden"
+                    Command="{Binding LoadPhotosCommand}"
+                    Width="75"/>
         </StackPanel>
 
-        <ScrollViewer>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
             <ItemsControl ItemsSource="{Binding Photos}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        
+                        <WrapPanel IsItemsHost="True" />
+                        
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="5">
-                            <Image Source="{Binding ImgSrc}" Height="200" />
-                            <TextBlock Text="{Binding Camera.FullName}" />
+                            
+                            <Image Source="{Binding ImgSrc}"
+                                   Height="400"
+                                   Width="600"
+                                   Stretch="UniformToFill" />
+                            
+                            <TextBlock Text="{Binding Camera.FullName}"
+                                       TextWrapping="Wrap"
+                                       Width="300" />
+                            
                         </StackPanel>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </ScrollViewer>
-        
+
+
     </DockPanel>
 </Window>
