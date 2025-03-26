@@ -8,3 +8,7 @@ A simple WPF application built with .NET 8 that displays real images from NASA's
 ## How to
 ```bash
 git clone https://github.com/dnussgr/MarsRoverViewer.git
+```
+
+## Author
+This app is in active development and is subject to change
